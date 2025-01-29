@@ -1,77 +1,151 @@
 import React from "react";
 import {
   Box,
-  Button,
   Flex,
   HStack,
-  IconButton,
   Image,
   Spacer,
   Text,
-  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { FiMenu } from "react-icons/fi";
+
 import { Link as RouterLink } from "react-router-dom";
-import { Menu } from "lucide-react";
-import { GrDashboard } from "react-icons/gr";
+import { School } from "lucide-react";
+import { BiSolidDashboard } from "react-icons/bi";
+import { LuLogOut, LuSettings } from "react-icons/lu";
+import { GiTeacher } from "react-icons/gi";
+import { PiExam, PiStudent } from "react-icons/pi";
 
-const SidebarContent = ({ onClose }) => {
-  const links = [
-    { name: "Home", path: "/" },
-    {
-      name: "Dashboard",
-      path: "/dashboard",
-      // icon: <BiSolidDashboard size={20} />,
-    },
-    { name: "Settings", path: "/settings" },
-    { name: "Profile", path: "/profile" },
-    { name: "Logout", path: "/logout" },
-  ];
-
+const SidebarContent = () => {
   return (
-    <Box color={"#11bd6b"} w={{ base: "full", md: "60" }} h="full">
-      <Flex h="20" alignItems="center" justifyContent="space-between">
-        <HStack borderBottom={"sm"} p={"2"}>
-          <Image
-            src="OSES.png"
-            alt="OSES logo"
-            w={"40px"}
-            h={"auto"}
-            rounded={"lg"}
-          />
-          <Spacer />
-          <Text fontSize="xl" p={"2"} textAlign={"center"} fontWeight="bold">
-            Online Student Examination System (OSES)
-          </Text>
-        </HStack>
-      </Flex>
-      <VStack align="start" spacing="4" p={"4"}>
-        {links.map((link) => (
-          <HStack
-            as={RouterLink}
-            to={link.path}
-            key={link.name}
-            _hover={{ textDecoration: "none", bg: "gray.300" }}
-            p="2"
-            w="full"
-            rounded="md"
-          >
-            <BiSolidDashboard size={20} />
-            {link.name}
+    <Box
+      color={"#11bd6b"}
+      w={{ base: "full", md: "60" }}
+      h="full"
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+    >
+      <Box>
+        <Flex h="20" alignItems="center" justifyContent="space-between">
+          <HStack borderBottom={"sm"} p={"2"}>
+            <Image
+              src="OSES.png"
+              alt="OSES logo"
+              w={"40px"}
+              h={"auto"}
+              rounded={"lg"}
+            />
+            <Spacer />
+            <Text fontSize="xl" p={"2"} textAlign={"center"} fontWeight="bold">
+              Online Student Examination System (OSES)
+            </Text>
           </HStack>
-        ))}
-      </VStack>
+        </Flex>
+        <VStack
+          alignContent={"space-around"}
+          spaceY={{ md: "56" }}
+          h={"full"}
+          p={"4"}
+        >
+          <VStack w={"full"}>
+            <HStack
+              as={RouterLink}
+              to="/"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <BiSolidDashboard size={20} />
+              Dashboard
+            </HStack>
+            <HStack
+              as={RouterLink}
+              to="/schools"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <School size={20} />
+              Schools
+            </HStack>
+            <HStack
+              as={RouterLink}
+              to="/teachers"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <GiTeacher size={20} />
+              Teachers
+            </HStack>
+            <HStack
+              as={RouterLink}
+              to="/students"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <PiStudent size={20} />
+              Students
+            </HStack>
+            <HStack
+              as={RouterLink}
+              to="/exams"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <PiExam size={20} />
+              Exams
+            </HStack>
+          </VStack>
+          <Spacer />
+          <VStack borderTop={"sm"} w={"full"}>
+            <HStack
+              as={RouterLink}
+              to="/settings"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <LuSettings size={20} />
+              Settings
+            </HStack>
+            <HStack
+              as={RouterLink}
+              to="/logout"
+              _hover={{ textDecoration: "none", bg: "gray.300" }}
+              p="2"
+              w="full"
+              rounded="md"
+              fontWeight={"bold"}
+            >
+              <LuLogOut size={20} />
+              Logout
+            </HStack>
+          </VStack>
+        </VStack>
+      </Box>
     </Box>
   );
 };
 
 const Sidebar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <>
-      {/* Sidebar for larger screens */}
       <Box display={{ base: "none", md: "block" }}>
         <SidebarContent />
       </Box>
