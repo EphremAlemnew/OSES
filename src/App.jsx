@@ -11,6 +11,7 @@ import NotificationsPage from "./pages/NotificationsPage";
 import { Toaster } from "./components/ui/toaster";
 import ErrorPage from "./components/common/ErrorPage";
 import ForgotPasswordPage from "./components/auth/ForgotPasswordPage";
+import LogoutPage from "./components/auth/LogoutPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,13 +20,18 @@ function App() {
     <Flex>
       <Toaster />
       {!isLoggedIn ? (
-        <>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-
-            <Route path="/forgot" element={<ForgotPasswordPage />} />
-          </Routes>
-        </>
+        <Routes>
+          <Route
+            path="/"
+            element={<LoginPage setIsLoggedIn={setIsLoggedIn} />}
+          />
+          <Route
+            path="/logout"
+            element={<LogoutPage setIsLoggedIn={setIsLoggedIn} />}
+          />
+          <Route path="/forgot" element={<ForgotPasswordPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       ) : (
         <Box w={"full"}>
           <NavBar />
@@ -35,6 +41,10 @@ function App() {
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/forgot" element={<ForgotPasswordPage />} />
             <Route path="*" element={<ErrorPage />} />
+            <Route
+              path="/logout"
+              element={<LogoutPage setIsLoggedIn={setIsLoggedIn} />}
+            />
           </Routes>
         </Box>
       )}

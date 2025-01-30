@@ -1,19 +1,28 @@
-import React from "react";
 import {
+  Button,
   Flex,
-  Box,
+  Heading,
   Image,
   Input,
-  Button,
-  VStack,
-  Heading,
   Stack,
   Text,
+  VStack,
+  Box,
 } from "@chakra-ui/react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+import { Checkbox } from "../ui/checkbox";
+import { Link } from "react-router-dom";
+import { toaster } from "../ui/toaster";
+const LoginPage = ({ setIsLoggedIn }) => {
+  const handleLogin = () => {
+    // Simulating authentication success
+    setIsLoggedIn(true);
+    toaster.create({
+      title: `You have successfully logged In!`,
+      type: "success",
+    });
+  };
+
   return (
     <Flex
       color={"black"}
@@ -36,7 +45,7 @@ const LoginPage = () => {
         {/* Image Section */}
         <Box flex="1" textAlign="center">
           <Image
-            src="OSES-ICON.png" // Replace with your image URL
+            src="OSES-ICON.png"
             alt="Login Image"
             borderRadius="lg"
             w={{ base: "1/3", md: "full" }}
@@ -68,7 +77,6 @@ const LoginPage = () => {
               type="password"
               size="md"
               required
-              visibility={true}
             />
 
             {/* Remember Me Checkbox */}
@@ -84,6 +92,7 @@ const LoginPage = () => {
               _hover={{ bg: "#304552" }}
               color={"white"}
               width="full"
+              onClick={handleLogin}
             >
               Sign In
             </Button>
