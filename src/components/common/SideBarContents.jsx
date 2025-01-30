@@ -91,7 +91,7 @@ const SideBarContents = () => {
         </HStack>
         <HStack
           as={RouterLink}
-          to="/exams"
+          to="/results"
           _hover={{ border: "sm", textDecoration: "none" }}
           p="2"
           w="full"
@@ -103,7 +103,7 @@ const SideBarContents = () => {
         </HStack>
         <HStack
           as={RouterLink}
-          to="/exams"
+          to="/report"
           _hover={{ border: "sm", textDecoration: "none" }}
           p="2"
           w="full"

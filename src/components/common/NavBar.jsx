@@ -8,6 +8,7 @@ import {
   Text,
   Input,
   AvatarIcon,
+  InputElement,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { useColorMode } from "../ui/color-mode";
@@ -26,9 +27,10 @@ import {
 } from "@/components/ui/drawer";
 import { Avatar, AvatarGroup } from "../ui/avatar";
 import Sidebar from "./SideBar";
-import { Bell, Languages } from "lucide-react";
+import { Bell, Languages, Search, SearchIcon } from "lucide-react";
 import SideBarContents from "./SideBarContents";
 import { base } from "framer-motion/client";
+import { InputGroup } from "../ui/input-group";
 
 function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -61,9 +63,6 @@ function NavBar() {
             </Button>
           </DrawerTrigger>
           <DrawerContent>
-            {/* <DrawerHeader>
-              <DrawerTitle></DrawerTitle>
-            </DrawerHeader> */}
             <DrawerBody>
               <Sidebar />
             </DrawerBody>
@@ -94,12 +93,14 @@ function NavBar() {
         justifyContent="space-between"
         alignSelf={"center"}
       >
-        <Input
-          placeholder="Search here..."
-          name="name"
-          w={{ lg: "xl" }}
-          rounded={"2xl"}
-        />
+        <InputGroup startElement={<Search size={20} />}>
+          <Input
+            placeholder="Search here..."
+            name="name"
+            w={{ lg: "xl" }}
+            rounded={"xl"}
+          />
+        </InputGroup>
       </HStack>
 
       {/* Mobile Menu Icon */}
@@ -117,12 +118,14 @@ function NavBar() {
               <DrawerTitle>Search</DrawerTitle>
             </DrawerHeader>
             <DrawerBody>
-              <Input
-                placeholder="Search here..."
-                name="name"
-                w={{ lg: "xl" }}
-                rounded={"2xl"}
-              />
+              <InputGroup startElement={<Search size={20} />}>
+                <Input
+                  placeholder="Search here..."
+                  name="name"
+                  w={{ lg: "xl" }}
+                  rounded={"xl"}
+                />
+              </InputGroup>
             </DrawerBody>
             <DrawerFooter></DrawerFooter>
             <DrawerCloseTrigger />

@@ -11,6 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
@@ -35,7 +36,7 @@ const LoginPage = () => {
         {/* Image Section */}
         <Box flex="1" textAlign="center">
           <Image
-            src="OSES.png" // Replace with your image URL
+            src="OSES-ICON.png" // Replace with your image URL
             alt="Login Image"
             borderRadius="lg"
             w={{ base: "1/3", md: "full" }}
@@ -89,8 +90,8 @@ const LoginPage = () => {
 
             {/* Forgot Password Link */}
             <Text
-              as="a"
-              href="#"
+              as={Link}
+              to="/forgot"
               color="blue.500"
               fontSize="sm"
               textAlign="center"
