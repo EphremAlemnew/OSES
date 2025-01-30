@@ -15,6 +15,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { LuLogOut, LuSettings } from "react-icons/lu";
 import { GiTeacher } from "react-icons/gi";
 import { PiExam, PiStudent } from "react-icons/pi";
+import SideBarContents from "./SideBarContents";
 
 const SidebarContent = () => {
   return (
@@ -42,102 +43,7 @@ const SidebarContent = () => {
             </Text>
           </HStack>
         </Flex>
-        <VStack
-          alignContent={"space-around"}
-          spaceY={{ md: "56" }}
-          h={"full"}
-          p={"4"}
-        >
-          <VStack w={"full"}>
-            <HStack
-              as={RouterLink}
-              to="/"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <BiSolidDashboard size={20} />
-              Dashboard
-            </HStack>
-            <HStack
-              as={RouterLink}
-              to="/schools"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <School size={20} />
-              Schools
-            </HStack>
-            <HStack
-              as={RouterLink}
-              to="/teachers"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <GiTeacher size={20} />
-              Teachers
-            </HStack>
-            <HStack
-              as={RouterLink}
-              to="/students"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <PiStudent size={20} />
-              Students
-            </HStack>
-            <HStack
-              as={RouterLink}
-              to="/exams"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <PiExam size={20} />
-              Exams
-            </HStack>
-          </VStack>
-          <Spacer />
-          <VStack borderTop={"sm"} w={"full"}>
-            <HStack
-              as={RouterLink}
-              to="/settings"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <LuSettings size={20} />
-              Settings
-            </HStack>
-            <HStack
-              as={RouterLink}
-              to="/logout"
-              _hover={{ textDecoration: "none", bg: "gray.300" }}
-              p="2"
-              w="full"
-              rounded="md"
-              fontWeight={"bold"}
-            >
-              <LuLogOut size={20} />
-              Logout
-            </HStack>
-          </VStack>
-        </VStack>
+        <SideBarContents />
       </Box>
     </Box>
   );
