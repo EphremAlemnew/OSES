@@ -3,10 +3,8 @@
 
 React + Vite
 
-to use this repo follow this steps.
+#To use this repo follow this steps.
 
-clone the repository
-
-npm install
-
-npm run dev 
+1. clone the repository
+2. npm install
+3. npm run dev 
