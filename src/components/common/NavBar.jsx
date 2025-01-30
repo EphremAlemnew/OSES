@@ -9,7 +9,7 @@ import {
   Input,
   AvatarIcon,
 } from "@chakra-ui/react";
-
+import { Link as RouterLink } from "react-router-dom";
 import { useColorMode } from "../ui/color-mode";
 import { BiMoon, BiSun, BiMenu, BiX, BiSearch } from "react-icons/bi";
 
@@ -47,7 +47,7 @@ function NavBar() {
       zIndex={1000}
       bg={bg}
       color={textColor}
-      h={16}
+      h={"20"}
       justifyContent={"space-between"}
       borderBottom={"sm"}
     >
@@ -71,10 +71,17 @@ function NavBar() {
             <DrawerCloseTrigger />
           </DrawerContent>
         </DrawerRoot>
-        <Text textAlign={"center"} display={{ base: "none", md: "block" }}>
+        <Text
+          as={RouterLink}
+          to={"/"}
+          textAlign={"center"}
+          display={{ base: "none", md: "block" }}
+        >
           Online Student Examination System
         </Text>
-        <Text display={{ base: "flex", md: "none" }}>OSES</Text>
+        <Text as={RouterLink} to={"/"} display={{ base: "flex", md: "none" }}>
+          OSES
+        </Text>
       </HStack>
       <Spacer />
 

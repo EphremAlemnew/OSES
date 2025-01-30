@@ -1,36 +1,34 @@
 import { useState } from "react";
-
-// import "./App.css";
 import { Box, Flex } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
 
-import Sidebar from "./components/common/SideBar";
 import NavBar from "./components/common/NavBar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./components/auth/LoginPage";
-import { Route, Routes } from "react-router-dom";
 import SchoolsPage from "./pages/SchoolsPage";
-import { Toaster } from "./components/ui/toaster";
 import NotificationsPage from "./pages/NotificationsPage";
+
+import { Toaster } from "./components/ui/toaster";
+import ErrorPage from "./components/common/ErrorPage";
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   return (
     <Flex>
       <Toaster />
       {!isLoggedIn ? (
-        <>
-          <LoginPage />
-        </>
+        <LoginPage />
       ) : (
-        <>
-          <Box>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/schools" element={<SchoolsPage />} />
-              <Route path="/notifications" element={<NotificationsPage />} />
-            </Routes>
-          </Box>
-        </>
+        <Box w={"full"}>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/schools" element={<SchoolsPage />} />
+            <Route path="/notifications" element={<NotificationsPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Box>
       )}
     </Flex>
   );

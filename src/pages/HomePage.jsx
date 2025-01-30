@@ -65,8 +65,8 @@ const HomePage = () => {
   }, [currentText, isDeleting, textIndex]);
 
   return (
-    <VStack spacing={16} mt={16} mx={{ lg: "80" }} align="stretch">
-      <Box p={"2"} borderBottom="md" py={{ lg: "64" }}>
+    <VStack mt={{ base: "20", md: "2" }} mx={{ lg: "80" }} align="stretch">
+      <Box p={"2"} borderBottom="md" py={{ lg: "28" }}>
         <Heading as="h1" size="4xl" fontWeight={"extrabold"}>
           About{" "}
         </Heading>
